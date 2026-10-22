@@ -11,7 +11,6 @@ use TYPO3\CMS\Core\Core\Environment;
 use TYPO3\CMS\Core\Database\Connection;
 use TYPO3\CMS\Core\Database\ConnectionPool;
 use TYPO3\CMS\Core\Database\Query\QueryBuilder;
-use TYPO3\CMS\Core\Resource\FileType;
 use TYPO3\CMS\Core\Resource\ProcessedFile;
 use TYPO3\CMS\Core\Resource\StorageRepository;
 
@@ -21,6 +20,12 @@ use TYPO3\CMS\Core\Resource\StorageRepository;
 final class ProcessedFileCleanupService
 {
     private const TABLE = 'sys_file_processedfile';
+
+    /**
+     * Value of sys_file.type for images. Not taken from the core API, since TYPO3 v12 only provides
+     * AbstractFile::FILETYPE_IMAGE, which is deprecated in v13 and removed in v14 in favour of FileType::IMAGE.
+     */
+    private const FILE_TYPE_IMAGE = 2;
 
     /**
      * Resolved absolute base paths per storage uid. Null means "not resolvable".
@@ -220,7 +225,7 @@ final class ProcessedFileCleanupService
             // Only process files whose original is an image
             $expr->eq(
                 'f.type',
-                $queryBuilder->createNamedParameter(FileType::IMAGE->value, Connection::PARAM_INT)
+                $queryBuilder->createNamedParameter(self::FILE_TYPE_IMAGE, Connection::PARAM_INT)
             ),
             // Never touch "uses original file" placeholder rows. When TYPO3 decides no processing is
             // needed it stores a row with an empty identifier (and no name) to cache that decision;

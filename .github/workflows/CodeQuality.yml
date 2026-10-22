@@ -9,7 +9,7 @@ jobs:
 
     strategy:
       matrix:
-        typo3: [v13, v14]
+        typo3: [v12, v13, v14]
         php: [8.2, 8.3, 8.4]
 
     steps:

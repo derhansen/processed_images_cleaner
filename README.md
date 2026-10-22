@@ -1,4 +1,5 @@
 [![Latest Stable Version](https://poser.pugx.org/derhansen/processed-images-cleaner/v/stable)](https://packagist.org/packages/derhansen/processed-images-cleaner)
+[![TYPO3 12](https://img.shields.io/badge/TYPO3-12-orange.svg)](https://get.typo3.org/version/12)
 [![TYPO3 13](https://img.shields.io/badge/TYPO3-13-orange.svg)](https://get.typo3.org/version/13)
 [![TYPO3 14](https://img.shields.io/badge/TYPO3-14-orange.svg)](https://get.typo3.org/version/14)
 [![Monthly Downloads](https://poser.pugx.org/derhansen/processed-images-cleaner/d/monthly)](https://packagist.org/packages/derhansen/processed-images-cleaner)
@@ -42,7 +43,7 @@ next time it is requested. This extension lets you remove those files in a targe
 
 | Version  | TYPO3         | PHP         |
 |----------|---------------|-------------|
-| 1.0      | 13.4 & 14.3  | 8.2 - 8.5    |
+| 1.0      | 12.4, 13.4 & 14.3 | 8.2 - 8.5 |
 
 ## Installation
 
